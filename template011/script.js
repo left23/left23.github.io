@@ -11,8 +11,8 @@
               };
     })();
 
-	// example code from mr doob : http://mrdoob.com/lab/javascript/requestanimationframe/
-	//var canvas = document.getElementById("myCanvas");
+// example code from mr doob : http://mrdoob.com/lab/javascript/requestanimationframe/
+//var canvas = document.getElementById("myCanvas");
 
 	var  canvas, context, toggle;
 	var y = 200;
@@ -51,40 +51,28 @@
 	var origin = {};
 
 	// Bullet image
-	var bulletReady = false;
+	//var bulletReady = false;
 	var bulletImage = new Image();
-	bulletImage.onload = function () {
+	//bulletImage.onload = function () {
 		//bulletReady = true;
-	};
+	//};
 	bulletImage.src = "bullet.png";
 
 	var bullet = {
 		speed: 10// movement in pixels per second
+		
 	};
-
+	
     canvas = document.createElement( 'canvas' );
     canvas.width = 568;
     canvas.height = 400;
     context = canvas.getContext( '2d' );
-    context.font = "40pt Calibri";
-	
-	// align text horizontally center
-	context.textAlign = "center";
-	// align text vertically center
-	context.textBaseline = "middle";	
-	//context.font = "12pt Calibri"; 
-	
 	canvas.width = 8248;
-	//context.drawImage(background_obj, backg_x, backg_y);
+	context.drawImage(background_obj, backg_x, backg_y);
 	//context.drawImage(bg, backg_x, backg_y);
-	
  	imageData = context.getImageData(0,0,8248,400); //fnord
- 	 	    
-    //var x = document;
     canvas.width = 568;
-
 	$( "#container" ).append( canvas );
-
 
 	$( document ).ready(function() {
 
@@ -111,35 +99,35 @@
 		{
 			if (e.keyCode == 37)
 			{
-			//	state= "stop";
-				//dirX=1;
-				// dir=3;	
 				 shoot_state = false; 
 			}
 			if (e.keyCode == 39)
 			{
-			//	state= "stop";
-				//dirX=1;
-			//	dir=4;	
 				shoot_state = false; 
 			}
 			if (e.keyCode == 38)
 			{
 				jump = 'descend';
 			}
-	});
+	    });
 
 		$(document).keydown(function(e) {
 	
 			if(e.keyCode == 32)
 			{
-				status = 0 - status;
-				bulletReady = true;
+				//status = 0 - status;
+				//bulletReady = true;
 				shoot_state = true;
-				bullet.x = destX + 150;
-		        bullet.y = destY + 20;
+				bullet.x = 100;
+		        bullet.y = destY+15;
 		        first = true;
-			}
+		        if (state =='left'){
+		            dir = 3;
+		        }
+		        if (state =='right'){
+		            dir = 4;
+		        }		        
+            }
 			if (e.keyCode == 38){
 				jump = 'ascend';
 			}
@@ -153,16 +141,16 @@
 				state = 'right';
 			}
 		});
-			///////////////////////////////////////////////////////////////////////////////
-		   if (state == 'left')
-		   {
-		   		x = x - 1 ;
-		   		
-		   		backg_x = backg_x + 1 ;
-		   		
-		   		state_image = imageObj2; //left sprite
+///////////////////////////////////////////////////////////////////////////
+            if (state == 'left')
+            {
+	            x = x - 1 ;
+	
+	            backg_x = backg_x + 1 ;
+	
+	            state_image = imageObj2; //left sprite
 
-		   }
+            }
 			if (state == 'right')
 			{
 	  			x = x + 1;
@@ -190,41 +178,25 @@
 				
 				dirY = -1;
 			}
-			//if (inbounds=='true')
-			//{
-				destX = (canvas.width / 2 ) + x;
-				destY = canvas.height  -  y - 60		;// 60 pixels offset from centre
-			//}
-	//		if ( destX < 0)
-	//		{
-	// 			destX = 1;
-	//		}
+			
+			if (jump !="ascend")
+				{
+				//	
+				}			
+			
+
+			destX = (canvas.width / 2 ) + x;
+			destY = canvas.height  -  y - 60		;// 60 pixels offset from centre
+
 			if (destY < 10)
 			{
 	  				destY = 10;
 			}
-			//canvas.width = 8248;
-			
 		
 			red		= imageData.data[	( (8248 * (destY+10 )) + parseInt(0-backg_x + 100 ) )*4 ]; 
 			green	= imageData.data[ ( ( (8248 * (destY+10 )) + parseInt(0-backg_x + 100 ) )*4 )+ 1];
 			blue	= imageData.data[ ( ( (8248 * (destY+10 )) + parseInt(0-backg_x + 100 ) )*4 )+ 2];
 			
-			
-			
-			if (jump !="ascend")
-				{
-				//	jump = 'descend';
-				}
-			//	inbounds	= 'true';
-			//	float		= 'false';
-			
-		
-			if ( red==0 && green==255 && blue==246 ){
-			//	jump		= 'ascend';
-			//	float		= 'true';
-			//	inbounds	= 'true';
-			}
 			if( red==0 && blue==0 && green==0){
 				death		= 'true';
 			}
@@ -235,10 +207,6 @@
 			context.fillText( state + ":" , canvas.width / 2 , canvas.height / 2 );
 
 			context.clearRect(0,0 , canvas.width, canvas.height);
-			// move the rotation point to the center of the rect
-		    //  context.translate( x + 1, y + 1 );
-			// rotate the rect
-		 	// context.rotate(50*Math.PI/180);
 	 
 			//draw background
 			
@@ -257,9 +225,6 @@
 			context.drawImage(state_image, 100, destY );
 	 		
 	 		context.restore();
-			//red = imageData.data;
-			//name = red[100];
-			//canvas.width = 568;
 
 			str = "width=" + imageData.width + " height=" +	imageData.height 
 			+ " red :" + red  + " green :" + green + " blue :" + blue  
@@ -274,15 +239,14 @@
 	
 			str3 = "shoot: " + shoot_state ;
 			context.fillText(str3, 20, 54);
-		
+
 			context.fillStyle = 'white';
 	
 			if (death){
-				//alert ("death");
 				death = false;
-				//destY = 10;
-				//destX = 10;
-				//backg_x = 1;
+				destY = 10;
+				destX = 10;
+				backg_x = 1;
 			}
 			if (shoot_state) {
 					context.drawImage(bulletImage, bullet.x, bullet.y);
@@ -291,35 +255,27 @@
 	
 	function shoot()
 	{
-
 		if (dir==1){
-
-		    bullet.y -= bullet.speed  * 1;
+		    bullet.y -= bullet.speed * 1;
 		}
-
 		if (dir==2){
-
-		    bullet.y += bullet.speed  * 1;
+		    bullet.y += bullet.speed * 1;
 		}
-
 		if (dir==3){
-
-		    bullet.x -= bullet.speed * 1  ;
+		    bullet.x -= bullet.speed * 1;
 		}
-
 		if (dir==4){
-
-		    bullet.x += bullet.speed  * 1 ;
-
+		    bullet.x += bullet.speed * 1;
 		}
 		//distance = square root sqrt  of ( (x2-x1)^2 + (y2-y1)^2)
 		var distance = Math.sqrt(    Math.pow(bullet.x - 100, 2) + Math.pow(bullet.y - destY,2) );
-		if (distance > 200)
+		
+		if (distance > 300)
 		{
 		    shoot_state = false;
-		    bulletReady = false;
+		    //bulletReady = false;
 		    first = true;
-		    bullet.x = destX - 100 ;
+		    bullet.x = 100 ;
 		    bullet.y = destY;
 		}
 	}	
