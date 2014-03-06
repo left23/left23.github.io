@@ -3,7 +3,7 @@ Game =
     // This defines our grid's size and the size of each of its tiles
     map_grid: {
         width: 32,
-        height: 22,
+        height: 20,
         tile: {
             width: 32,
             height: 32
@@ -38,3 +38,6 @@ Game =
     }
 }
 $text_css = { 'font-size': '24px', 'font-family': 'Arial', 'color': 'white', 'text-align': 'center' }
+
+
+var disks= 10;

@@ -48,14 +48,6 @@ Hero.bind("Moved", function(oldPos) {
       Zombie.unflip();
 });
 
-
-
-
-
-
-
-
-
         this.requires('Actor, Solid,2D, Player,spr_zombie, Fourway,Collision,SpriteAnimation')
         .stopOnSolids()
         .onHit('ball', this.killZombie)
@@ -223,25 +215,12 @@ Crafty.c('b004', {
 });
 
 
-
-
-
-
-
-
 // A Bush is just an Actor with a certain color
 Crafty.c('Bush', {
   init: function() {
     this.requires('Actor, spr_bush, Solid,platform')
   },
 });
-
-
-
-
-
-
-
 
 
  // A village is a tile on the grid that the PC must visit in order to win the game
@@ -317,10 +296,7 @@ Crafty.c('Hero',
            Crafty.viewport.centerOn(Crafty('Hero'),200)
         })
         
-        
-        
-        
-        
+  
          .gravity("platform")
         .stopOnSolids()
         .onHit('Village', this.visitVillage)
@@ -330,9 +306,7 @@ Crafty.c('Hero',
         .reel('PlayerMovingLeft', 600, 0, 0, 30)
         
         .reel('Playerstanding', 600, 31, 0, 1)
-        
-        
-        
+     
         ;
         var animation_speed = 8;
         
@@ -347,18 +321,12 @@ Crafty.c('Hero',
         
      */   
         
-        
-
-        
-        
-        
+    
         this.bind('NewDirection', function(data) 
         {
         
         
          console.log (data.y);
-        
-        
         
             if (data.x > 0) {
             this.animate('PlayerMovingRight', animation_speed, -1);
@@ -368,10 +336,6 @@ Crafty.c('Hero',
             
             } else if (data.x < 0) {
             this.animate('PlayerMovingLeft', animation_speed, -1);
-           
-          
-         
-           
            
              Hero.flip();
             } else if (data.y > 0) {
@@ -413,5 +377,7 @@ Crafty.c('Hero',
         {
             villlage = data[0].obj;
             villlage.collect();
+         disks=disks-1;
+            init();
         }
 });

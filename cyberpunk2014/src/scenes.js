@@ -115,11 +115,11 @@ Crafty.scene('Game', function()
          
         {
         
-           if (Math.random() < 1.0 ) 
+           if (Math.random() < .7 ) 
             {
             // Place a bush entity at the current tile
             // var bush_or_rock = (Math.random() > 0.3) ? 'Bush' : 'Rock';
-            Crafty.e('Zombie').at(x, y);
+       //     Crafty.e('Zombie').at(x, y);
            
             }
             
@@ -127,7 +127,7 @@ Crafty.scene('Game', function()
              {
           
           
-            Crafty.e('b001').at(10, 100);
+           
           
             // Place a bush entity at the current tile
             // var bush_or_rock = (Math.random() > 0.3) ? 'Bush' : 'Rock';
@@ -140,23 +140,25 @@ Crafty.scene('Game', function()
           
             }
             
-              Crafty.e('Zombie').at(12, 10);
-             Crafty.e('b001').at(-1,5);
-             Crafty.e('b002').at(10,16);
+            Crafty.e('Zombie').at(12, 10);
+             
+             
+             Crafty.e('b001').at(1,0);
+          //   Crafty.e('b002').at(10,16);
              Crafty.e('b003').at(15,11);
-             Crafty.e('b004').at(22,11);
+             Crafty.e('b004').at(22,9);
             // Place a bush entity at the current tile
             // var bush_or_rock = (Math.random() > 0.3) ? 'Bush' : 'Rock';
            // Crafty.e('Bush').at(x, y);
             //this.occupied[10][10] = true;
             
-             Crafty.e('b001').at(24,5);
+             Crafty.e('b001').at(25,0);
              Crafty.e('b002').at(28,16);
-       //      Crafty.e('b003').at(42,11);
-       //      Crafty.e('b004').at(48,11);
-          //   Crafty.e('b004').at(64,11);
-          //   Crafty.e('b001').at(84,5);
-            
+             Crafty.e('b003').at(42,11);
+             Crafty.e('b004').at(48,11);
+             Crafty.e('b004').at(64,11);
+            Crafty.e('b001').at(84,0);
+             Crafty.e('b001').at(90, 0);
             
             
             
@@ -178,11 +180,31 @@ Crafty.scene('Game', function()
     }
  /////////////////////////////////////////////////////////////////////       
     var max_villages = 5;
+    
+    
+    
+    
+    Crafty.e('Village').at(15, 10);
+    
+    Crafty.e('Village').at(20, 10);
+    
+    
+    Crafty.e('Village').at(30, -1);
+    
+    Crafty.e('Village').at(40, 10);
+    
+    
+    Crafty.e('Village').at(50, 10);
+    
+    
+    //Crafty.e('Village').at(53, 10);
+    
+    
     for (var x = 0; x < Game.map_grid.width; x++)
     {
         for (var y = 0; y < Game.map_grid.height; y++)
         {
-            if (Math.random() < 0.03)
+            if (Math.random() < 0.33)
             {
                
                  
@@ -190,7 +212,7 @@ Crafty.scene('Game', function()
               
               //  if (Crafty('Village').length < max_villages)
                 {
-                   Crafty.e('Village').at(x, y);
+               //    Crafty.e('Village').at(x, 10);
                 }
             }
         }
