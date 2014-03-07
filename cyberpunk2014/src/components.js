@@ -293,16 +293,16 @@ Crafty.c('Hero',
         .bind('EnterFrame', function () 
         { 	
         	
-           Crafty.viewport.centerOn(Crafty('Hero'),200)
+           Crafty.viewport.centerOn(Crafty('Hero'),200);
         })
         
   
          .gravity("platform")
         .stopOnSolids()
         .onHit('Village', this.visitVillage)
-        .reel('PlayerMovingUp', 600, 0, 0, 30)
+       // .reel('PlayerMovingUp', 600, 0, 0, 30)
         .reel('PlayerMovingRight', 600, 0, 0, 30)
-        .reel('PlayerMovingDown', 600, 0, 0, 30)
+      //  .reel('PlayerMovingDown', 600, 0, 0, 30)
         .reel('PlayerMovingLeft', 600, 0, 0, 30)
         
         .reel('Playerstanding', 600, 31, 0, 1)
@@ -339,10 +339,10 @@ Crafty.c('Hero',
            
              Hero.flip();
             } else if (data.y > 0) {
-            this.animate('PlayerMovingDown', animation_speed, -1);
+       //     this.animate('PlayerMovingDown', animation_speed, -1);
            //  Hero.flip();
             } else if (data.y < 0) {
-            this.animate('PlayerMovingUp', animation_speed, -1);
+          //  this.animate('PlayerMovingUp', animation_speed, -1);
            //  Hero.flip();
             } else {
            

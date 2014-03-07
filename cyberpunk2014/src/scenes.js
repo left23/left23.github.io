@@ -33,6 +33,17 @@ Crafty.scene('Loading', function(){
 			spr_bush:    [3, 3],
 			spr_village: [0, 1]
 		});
+		
+		
+		
+		Crafty.sprite(32, 'assets/disk.jpg', {
+
+			spr_village: [0,0]
+		});
+		
+		
+		
+		
 
 		// Define the PC's sprite to be the first sprite in the third row of the
 		//  animation sprite map
@@ -143,7 +154,8 @@ Crafty.scene('Game', function()
             Crafty.e('Zombie').at(12, 10);
              
              
-             Crafty.e('b001').at(1,0);
+             Crafty.e('b001').at(1,0)
+             
           //   Crafty.e('b002').at(10,16);
              Crafty.e('b003').at(15,11);
              Crafty.e('b004').at(22,9);
@@ -223,7 +235,13 @@ Crafty.scene('Game', function()
     {
         console.log(e.realY , Hero.y,e.realX , Hero.x );
 
-        Crafty.e('ball').at(Hero.x + 100 ,Hero.y + 10);
+      
+      
+      
+        
+        
+        
+        
             
 /////////////////////////////////////////////////////////////////// 
  /* if (e.realY >= Hero.y+30)
@@ -270,8 +288,10 @@ Crafty.scene('Game', function()
         if (e.realX >= Hero.x+30)
             {
             
+             Hero.unflip();
             
             
+            /*
                 if (e.realY-130 >= Hero.y )
                 {
                      dY = 10;
@@ -284,11 +304,19 @@ Crafty.scene('Game', function()
                 {
                     dY = 0;
                 }
+                
+               */ 
+                 dY = 0;
                 dX=10;
             }
 ///////////////////////////////////////////////////////////////////        
             else if (e.realX+30 <= Hero.x)
             {
+            
+             Hero.flip();
+            
+            
+            /*
                 if (e.realY+330 <= Hero.y )
                 {
                     dY = -10;
@@ -301,8 +329,44 @@ Crafty.scene('Game', function()
                 {
                     dY = 0;
                 }
+                
+                
+                */
                 dX=-10;
+                dY = 0;
             }
+            
+            
+            
+            
+            
+            if (dX == 10) { 
+      
+      Crafty.e('ball').at(Hero.x + 100 ,Hero.y + 30);
+      }
+      else
+      { 
+      
+      Crafty.e('ball').at(Hero.x - 10 ,Hero.y + 30);
+      }
+      
+        
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
 ///////////////////////////////////////////////////////////////////        
          
 ///////////////////////////////////////////////////////////////////        
