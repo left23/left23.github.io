@@ -48,10 +48,13 @@ Hero.bind("Moved", function(oldPos) {
       Zombie.unflip();
 });
 
-        this.requires('Actor, Solid,2D, Player,spr_zombie, Fourway,Collision,SpriteAnimation')
+        this.requires('Actor, Solid,2D,spr_zombie, Twoway,Collision,SpriteAnimation, Gravity')
+        
+         .onHit('Bush', this.change_direction)
         .stopOnSolids()
+        .gravity("platform")
         .onHit('ball', this.killZombie)
-        .onHit('Solid', this.change_direction)
+       
         .bind('EnterFrame', function () 
         {           
             if (Zombie.y > Hero.y)
@@ -59,7 +62,7 @@ Hero.bind("Moved", function(oldPos) {
             
              Zombie.flip;
               var animation_speed = 8;
-                d_Zombie_y = -1;
+          //      d_Zombie_y = -1;
         //        Zombie.reel('PlayerRunningl', 1000, [[1, 0], [1, 1], [1, 2], [1, 3]]);
         //        Zombie.animate('PlayerRunningl', animation_speed, -1);
                 
@@ -67,7 +70,7 @@ Hero.bind("Moved", function(oldPos) {
             if (Zombie.y < Hero.y)
             {
               var animation_speed = 8;
-                d_Zombie_y = 1;
+       //         d_Zombie_y = 1;
           //      Zombie.reel('PlayerRunningr', 1000, [[2, 1], [3, 1], [4, 1], [3, 1]]);
         //          Zombie.animate('PlayerRunningr', animation_speed, -1);
             }      
@@ -89,7 +92,7 @@ Hero.bind("Moved", function(oldPos) {
       //            Zombie.animate('PlayerRunningu', animation_speed, -1);
             }  
             this.x = this.x + d_Zombie_x;
-            this.y = this.y + d_Zombie_y;
+      //      this.y = this.y + d_Zombie_y;
       
         })
         
@@ -146,8 +149,11 @@ Hero.bind("Moved", function(oldPos) {
     change_direction: function()
         {
            Zombie = this;
-           Zombie.d_Zombie_x = -Zombie.d_Zombie_x;
-           Zombie.d_Zombie_y = -Zombie.d_Zombie_y;
+           Zombie.d_Zombie_x = -1;
+        //   Zombie.d_Zombie_y = -Zombie.d_Zombie_y;
+        this.stopMovement();
+        this.stopOnSolids();
+        console.log ('changed');
            
             return this;
           },
@@ -160,7 +166,7 @@ Hero.bind("Moved", function(oldPos) {
     
     stopOnSolids: function()
     {
-        this.onHit('Solid', this.stopMovement);
+        this.onHit('Bush', this.stopMovement);
         return this;
     },
 

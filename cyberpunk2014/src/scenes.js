@@ -151,7 +151,10 @@ Crafty.scene('Game', function()
           
             }
             
-            Crafty.e('Zombie').at(12, 10);
+            Crafty.e('Bush').at(42, 9);
+            Crafty.e('Bush').at(42, 10);
+            
+            Crafty.e('Zombie').at(49, 10);
              
              
              Crafty.e('b001').at(1,0)
@@ -209,7 +212,7 @@ Crafty.scene('Game', function()
     Crafty.e('Village').at(50, 10);
     
     
-    //Crafty.e('Village').at(53, 10);
+    Crafty.e('Village').at(53, 10);
     
     
     for (var x = 0; x < Game.map_grid.width; x++)
