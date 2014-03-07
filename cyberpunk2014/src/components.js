@@ -40,147 +40,85 @@ Crafty.c('Zombie',
         var Zombie      = this;
         var Hero        = Crafty("Hero");
 
-
-Hero.bind("Moved", function(oldPos) {
-   if (oldPos.x < Zombie.x)
-      Zombie.flip();
-   else
-      Zombie.unflip();
-});
-
-        this.requires('Actor, Solid,2D,spr_zombie, Twoway,Collision,SpriteAnimation, Gravity')
-        
-         .onHit('Bush', this.change_direction)
-        .stopOnSolids()
-        .gravity("platform")
-        .onHit('ball', this.killZombie)
-       
-        .bind('EnterFrame', function () 
-        {           
-            if (Zombie.y > Hero.y)
-            {
-            
-             Zombie.flip;
-              var animation_speed = 8;
-          //      d_Zombie_y = -1;
-        //        Zombie.reel('PlayerRunningl', 1000, [[1, 0], [1, 1], [1, 2], [1, 3]]);
-        //        Zombie.animate('PlayerRunningl', animation_speed, -1);
-                
-            }
-            if (Zombie.y < Hero.y)
-            {
-              var animation_speed = 8;
-       //         d_Zombie_y = 1;
-          //      Zombie.reel('PlayerRunningr', 1000, [[2, 1], [3, 1], [4, 1], [3, 1]]);
-        //          Zombie.animate('PlayerRunningr', animation_speed, -1);
-            }      
-            if (Zombie.x > Hero.x)
-            {
-            
-             Zombie.flip;
-              var animation_speed = 8;
-                d_Zombie_x = -1;
-        //        Zombie.reel('PlayerRunningd', 1000, [[0, 0], [1, 0], [2, 0], [3, 0]]);
-     //             Zombie.animate('PlayerRunningd', animation_speed, -1);
-            }    
-
-            if (Zombie.x < Hero.x)
-            {
-              var animation_speed = 8;
-                d_Zombie_x = +1;
-       //        Zombie.reel('PlayerRunningu', 1000, [[0, 0], [0, 1], [0, 2], [0, 3]]);
-      //            Zombie.animate('PlayerRunningu', animation_speed, -1);
-            }  
-            this.x = this.x + d_Zombie_x;
-      //      this.y = this.y + d_Zombie_y;
-      
-        })
-        
-        var animation_speed = 8;
-        this.bind('NewDirection', function(data) 
+        Hero.bind("Moved", function(oldPos)
         {
-            if (data.x > 0) {
-            
-            Zombie.flip();
-            
-            console.log('up');
-            
-       //    Zombie.reel('PlayerRunningl', 1000, [[3, 0], [4, 0], [5, 0], [3, 3]]);
-       //     Zombie.animate('PlayerRunningl', animation_speed, -1);
+            if (oldPos.x < Zombie.x)
+            {
+                //stop = 0;
+                Zombie.flip();
             }
-            
-            else if (data.x < 0) 
+            else
             {
-        //   Zombie.reel('PlayerRunningr', 1000, [[3, 0], [4, 0], [5, 0], [3, 3]]);
-      //          Zombie.animate('PlayerRunningr', animation_speed, -1);
-           Zombie.unflip();
-          
-           console.log('up');
-          
-          
-            } 
-            
-            else if (data.y > 0)
-            {
-       //   Zombie.reel('PlayerRunningd', 1000, [[3, 0], [4, 0], [5, 0], [3, 3]]);
-       //         Zombie.animate('PlayerRunningd', animation_speed, -1);
-            Zombie.flip();
-            console.log('up');
-           
-            } 
-            
-            else if (data.y < 0) 
-            {
-        //   Zombie.reel('PlayerRunningu', 1000, [[3, 0], [4, 0], [5, 0], [3, 3]]);
-        //        Zombie.animate('PlayerRunningu', animation_speed, -1);
-           
-            console.log('up');
-            Zombie.flip();
-           
-            } 
-            
-            else {
-            this.pauseAnimation();
+                //stop = 0;
+                Zombie.unflip();
             }
         });
- 
-    },
-    
-    change_direction: function()
+        var animation_speed = 8;
+        this.requires('Actor, Solid,2D,spr_zombie, Twoway,Collision,SpriteAnimation, Gravity')
+        
+        .reel('ZombieMoving',600, 0, 0, 30)
+        .gravity("platform")
+        .animate('ZombieMoving', animation_speed, -1)
+        .onHit('ball', this.killZombie)
+        .onHit('Bush', function ()
         {
-           Zombie = this;
-           Zombie.d_Zombie_x = -1;
-        //   Zombie.d_Zombie_y = -Zombie.d_Zombie_y;
-        this.stopMovement();
-        this.stopOnSolids();
-        console.log ('changed');
-           
-            return this;
-          },
-
-    killZombie: function() 
-    {
-        var Zombie = this;
-        Zombie.destroy();
-    },
-    
-    stopOnSolids: function()
-    {
-        this.onHit('Bush', this.stopMovement);
-        return this;
-    },
-
-    // Stops the movement
-    stopMovement: function() 
-    {
-        this._speed = 0;
-        if (this._movement)
+            stop=1;
+            if (d_Zombie_x == -1){
+           this.x += 5;
+              console.log('left');
+              this.animate('ZombieMoving', animation_speed, -1);
+              
+            }
+            else if (d_Zombie_x == 1){
+            this.x -= 5;
+              console.log('right');
+              this.animate('ZombieMoving', animation_speed, -1);
+            }
+        },
+        function ()
         {
-            this.x -= this._movement.x;
-            this.y -= this._movement.y;
-        }
+            stop=0;
+        })
+        .bind('EnterFrame', function () 
+        {   
+            if (Zombie.x > Hero.x)
+            {
+                
+                if (stop != 1)
+                {
+                    d_Zombie_x = -1;
+                }
+                else
+                {
+                    d_Zombie_x = 0;
+                }
+            }    
+            if (Zombie.x < Hero.x)
+            {
+                if (stop!=1)
+                {
+                    d_Zombie_x = 1;
+                }
+            }  
+            this.x = this.x + d_Zombie_x;
+         })
+    },
+        killZombie: function() 
+        {
+            var Zombie = this;
+            Zombie.destroy();
+        },
+
+// Stops the movement
+        stopMovement: function() 
+        {
+            stop =1;
+            console.log (stop);
     },
 });
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 // A Tree is just an Actor with a certain color
 Crafty.c('Tree', {
@@ -188,16 +126,12 @@ Crafty.c('Tree', {
     this.requires('Actor,spr_tree, Solid,platform')
   },
 });
-
-
-
 // A Tree is just an Actor with a certain color
 Crafty.c('b001', {
   init: function() {
     this.requires('Actor,spr_b001, Solid,platform')
   },
 });
-
 
 // A Tree is just an Actor with a certain color
 Crafty.c('b002', {
@@ -220,14 +154,12 @@ Crafty.c('b004', {
   },
 });
 
-
 // A Bush is just an Actor with a certain color
 Crafty.c('Bush', {
   init: function() {
     this.requires('Actor, spr_bush, Solid,platform')
   },
 });
-
 
  // A village is a tile on the grid that the PC must visit in order to win the game
 Crafty.c('Village',
@@ -288,74 +220,41 @@ Crafty.c('Hero',
     init: function() 
     {
         var Hero = this;
-        var Zombie = Crafty('Zombie');
-        
+
         Crafty.addEvent(Hero, Crafty.stage.elem, "mousedown", Hero.onMouseDown);
         this.requires('Fourway,Grid,2D, Player,Tween, Controls, Collision,Mouse,Keyboard,Canvas,spr_player,SpriteAnimation,Gravity')
         .attr({ h: 100, w:100 })
         .fourway(8)
-        
-        
         .bind('EnterFrame', function () 
         { 	
-        	
            Crafty.viewport.centerOn(Crafty('Hero'),200);
         })
-        
-  
-         .gravity("platform")
+        .gravity("platform")
         .stopOnSolids()
         .onHit('Village', this.visitVillage)
-       // .reel('PlayerMovingUp', 600, 0, 0, 30)
-        .reel('PlayerMovingRight', 600, 0, 0, 30)
-      //  .reel('PlayerMovingDown', 600, 0, 0, 30)
-        .reel('PlayerMovingLeft', 600, 0, 0, 30)
-        
+        .reel('PlayerMoving', 600, 0, 0, 30)
         .reel('Playerstanding', 600, 31, 0, 1)
-     
+        .animate('PlayerMoving', animation_speed, -1)
         ;
         var animation_speed = 8;
         
-        
-        /*
-        this.bind("Moved", function(oldPos) {
-   if (oldPos.x < Zombie.x)
-      Zombie.flip();
-   else
-      Zombie.unflip();
-});
-        
-     */   
-        
-    
         this.bind('NewDirection', function(data) 
         {
-        
-        
-         console.log (data.y);
-        
-            if (data.x > 0) {
-            this.animate('PlayerMovingRight', animation_speed, -1);
-            
-            Hero.unflip();
-            
-            
-            } else if (data.x < 0) {
-            this.animate('PlayerMovingLeft', animation_speed, -1);
-           
-             Hero.flip();
-            } else if (data.y > 0) {
-       //     this.animate('PlayerMovingDown', animation_speed, -1);
-           //  Hero.flip();
-            } else if (data.y < 0) {
-          //  this.animate('PlayerMovingUp', animation_speed, -1);
-           //  Hero.flip();
-            } else {
-           
-   
-            this.animate('Playerstanding', animation_speed, -1);
-          
-            this.pauseAnimation();
+
+            if (data.x > 0) 
+            {
+                Hero.animate('PlayerMoving', animation_speed, -1);
+                Hero.unflip();
+            } 
+            else if (data.x < 0) 
+            {
+                Hero.animate('PlayerMoving', animation_speed, -1);
+                Hero.flip();
+            } 
+            else
+            {
+                this.animate('Playerstanding', animation_speed, -1);
+                this.pauseAnimation();
             }
         });
      },   
@@ -383,7 +282,7 @@ Crafty.c('Hero',
         {
             villlage = data[0].obj;
             villlage.collect();
-         disks=disks-1;
+            disks=disks-1;
             init();
         }
 });

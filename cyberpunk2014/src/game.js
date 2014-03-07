@@ -41,3 +41,5 @@ $text_css = { 'font-size': '24px', 'font-family': 'Arial', 'color': 'white', 'te
 
 
 var disks= 10;
+var dX=0;
+var dY=0;

@@ -57,6 +57,8 @@ Crafty.scene('Loading', function(){
 		}, 0, 2);
 		
 		
+		
+		
 		Crafty.sprite(303,654, 'assets/building001.png', {
 			spr_b001:  [0, 0],
 		}, 0, 2);
@@ -100,8 +102,41 @@ Crafty.scene('Game', function()
         }
     }
 
+var options = {
+    maxParticles: 150,
+    size: 18,
+    sizeRandom: 4,
+    speed: 1,
+    speedRandom: 1.2,
+    // Lifespan in frames
+    lifeSpan: 29,
+    lifeSpanRandom: 7,
+    // Angle is calculated clockwise: 12pm is 0deg, 3pm is 90deg etc.
+    angle: 65,
+    angleRandom: 34,
+    startColour: [255, 131, 0, 1],
+    startColourRandom: [48, 50, 45, 0],
+    endColour: [245, 35, 0, 0],
+    endColourRandom: [60, 60, 60, 0],
+    // Only applies when fastMode is off, specifies how sharp the gradients are drawn
+    sharpness: 20,
+    sharpnessRandom: 10,
+    // Random spread from origin
+    spread: 10,
+    // How many frames should this last
+    duration: -1,
+    // Will draw squares instead of circle gradients
+    fastMode: false,
+    gravity: { x: 0, y: 0.1 },
+    // sensible values are 0-3
+    jitter: 0
+}
+
+Crafty.e("2D,Canvas,Particles").particles(options);
+
+
     var Hero =   Crafty.e("Hero").at(3, 3); 
- this.occupied[10][10] = true;
+ //   this.occupied[10][10] = true;
     // Player character, placed at 5, 5 on our grid
     //this.Hero = Crafty.e('Hero').at(5, 5);
     //this.occupied[this.Hero.at().x][this.Hero.at().y] = true;
@@ -136,24 +171,18 @@ Crafty.scene('Game', function()
             
             else
              {
-          
-          
-           
-          
+ 
             // Place a bush entity at the current tile
             // var bush_or_rock = (Math.random() > 0.3) ? 'Bush' : 'Rock';
            // Crafty.e('Bush').at(x, y);
             this.occupied[x][y] = true;
-          
-          
-          
-          
+       
           
             }
             
-            Crafty.e('Bush').at(42, 9);
+            Crafty.e('Bush').at(58, 10);
             Crafty.e('Bush').at(42, 10);
-            
+          
             Crafty.e('Zombie').at(49, 10);
              
              
@@ -172,25 +201,11 @@ Crafty.scene('Game', function()
              Crafty.e('b003').at(42,11);
              Crafty.e('b004').at(48,11);
              Crafty.e('b004').at(64,11);
-            Crafty.e('b001').at(84,0);
+             Crafty.e('b001').at(84,0);
              Crafty.e('b001').at(90, 0);
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
+         
          } 
-   
-           
- 
-            
-            
+        
         }
     }
  /////////////////////////////////////////////////////////////////////       
@@ -237,78 +252,14 @@ Crafty.scene('Game', function()
     Crafty.addEvent(this, Crafty.stage.elem, "mousedown", function(e)
     {
         console.log(e.realY , Hero.y,e.realX , Hero.x );
-
-      
-      
-      
         
-        
-        
-        
-            
-/////////////////////////////////////////////////////////////////// 
- /* if (e.realY >= Hero.y+30)
-            {
-                 if (e.realX >= Hero.x + 30)
-                {
-                     dX = 10;
-                }
-                else if (e.realX <= Hero.x - 30)
-                {
-                    dX = -10;
-                }
-                else
-                {
-                    dX = 0;
-                }
-                dY = 10;
-            }
-           
-            
-///////////////////////////////////////////////////////////////////        
-     else if (e.realY+30 <= Hero.y)
-            {
-               if (e.realX < Hero.x - 50)
-                {
-                     dX = -10;
-                }
-                else if (e.realX > Hero.x + 50)
-                {
-                    dX = 10;
-                }
-                else
-                {
-                    dX = 0;
-                }
-                dY = -10;
-            }
-            
-    */        
-            
-            
             
 //////////////////////////////////////////////////////////////////////
         if (e.realX >= Hero.x+30)
             {
             
              Hero.unflip();
-            
-            
-            /*
-                if (e.realY-130 >= Hero.y )
-                {
-                     dY = 10;
-                }
-                else if (e.realY+310 <= Hero.y )
-                {
-                    dY = -10;
-                }
-                else
-                {
-                    dY = 0;
-                }
-                
-               */ 
+
                  dY = 0;
                 dX=10;
             }
@@ -318,31 +269,11 @@ Crafty.scene('Game', function()
             
              Hero.flip();
             
-            
-            /*
-                if (e.realY+330 <= Hero.y )
-                {
-                    dY = -10;
-                }
-                else if (e.realY-330 >= Hero.y )
-                {
-                    dY = 10;
-                }
-                else
-                {
-                    dY = 0;
-                }
-                
-                
-                */
+
                 dX=-10;
                 dY = 0;
             }
-            
-            
-            
-            
-            
+   
             if (dX == 10) { 
       
       Crafty.e('ball').at(Hero.x + 100 ,Hero.y + 30);
@@ -352,22 +283,7 @@ Crafty.scene('Game', function()
       
       Crafty.e('ball').at(Hero.x - 10 ,Hero.y + 30);
       }
-      
-        
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
+     
             
             
 ///////////////////////////////////////////////////////////////////        
