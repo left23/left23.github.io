@@ -37,83 +37,88 @@ Crafty.c('Zombie',
 {
     init: function() 
     {
-        var Zombie      = this;
+        var zombie      = this;
         var Hero        = Crafty("Hero");
-
         Hero.bind("Moved", function(oldPos)
         {
-            if (oldPos.x < Zombie.x)
+            if (oldPos.x < zombie.x)
             {
                 //stop = 0;
-                Zombie.flip();
+                zombie.flip();
             }
             else
             {
                 //stop = 0;
-                Zombie.unflip();
+                zombie.unflip();
             }
         });
         var animation_speed = 8;
         this.requires('Actor, Solid,2D,spr_zombie, Twoway,Collision,SpriteAnimation, Gravity')
-        
         .reel('ZombieMoving',600, 0, 0, 30)
         .gravity("platform")
         .animate('ZombieMoving', animation_speed, -1)
-        .onHit('ball', this.killZombie)
-        .onHit('Bush', function ()
-        {
-            stop=1;
-            if (d_Zombie_x == -1){
-           this.x += 5;
-              console.log('left');
-              this.animate('ZombieMoving', animation_speed, -1);
-              
-            }
-            else if (d_Zombie_x == 1){
-            this.x -= 5;
-              console.log('right');
-              this.animate('ZombieMoving', animation_speed, -1);
-            }
-        },
-        function ()
-        {
-            stop=0;
-        })
+        .onHit('ball', zombie.killZombie)
         .bind('EnterFrame', function () 
         {   
-            if (Zombie.x > Hero.x)
+            if (this.x > Hero.x)
             {
-                
-                if (stop != 1)
+                if (this.stop != 1)
                 {
-                    d_Zombie_x = -1;
+                    this.d_zombie_x = -1;
                 }
                 else
                 {
-                    d_Zombie_x = 0;
+                    this.d_zombie_x = 0;
+                    this.pauseAnimation();
                 }
             }    
-            if (Zombie.x < Hero.x)
+            if (this.x < Hero.x)
             {
-                if (stop!=1)
+                if (this.stop!=1)
                 {
-                    d_Zombie_x = 1;
+                    this.d_zombie_x = 1;
+                }
+                else
+                {
+                    this.d_zombie_x = 0;
+                    this.pauseAnimation();
                 }
             }  
-            this.x = this.x + d_Zombie_x;
+            this.x = this.x + this.d_zombie_x;
          })
+         
+         .onHit('Bush', function ()
+        {
+            this.stop = 1;
+            if (this.d_zombie_x == -1)
+            {
+                this.x += 2;
+                console.log('left');
+            }
+                else if (this.d_zombie_x == 1)
+                {
+                    this.x -= 2;
+                    console.log('right');
+                }
+        },
+        function ()
+        {
+            this.stop = 0;
+            this.animate('ZombieMoving', animation_speed, -1); 
+        })
+      
     },
         killZombie: function() 
         {
-            var Zombie = this;
-            Zombie.destroy();
+            var zombie = this;
+            zombie.destroy();
         },
 
 // Stops the movement
         stopMovement: function() 
         {
-            stop =1;
-            console.log (stop);
+            this.stop = 1;
+            console.log (this.stop);
     },
 });
 
@@ -126,12 +131,42 @@ Crafty.c('Tree', {
     this.requires('Actor,spr_tree, Solid,platform')
   },
 });
+
+
+
+
+
+// A Tree is just an Actor with a certain color
+Crafty.c('b001_r', {
+  init: function() {
+    this.requires('Actor,spr_b001_r, Solid')
+  },
+});
+
+
+
+
 // A Tree is just an Actor with a certain color
 Crafty.c('b001', {
   init: function() {
     this.requires('Actor,spr_b001, Solid,platform')
   },
 });
+
+// A Tree is just an Actor with a certain color
+Crafty.c('b001_l', {
+  init: function() {
+    this.requires('Actor,spr_b001_l, Solid')
+  },
+});
+
+
+
+
+
+
+
+
 
 // A Tree is just an Actor with a certain color
 Crafty.c('b002', {
@@ -153,6 +188,28 @@ Crafty.c('b004', {
     this.requires('Actor,spr_b004, Solid,platform')
   },
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // A Bush is just an Actor with a certain color
 Crafty.c('Bush', {

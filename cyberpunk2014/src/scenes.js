@@ -13,7 +13,12 @@ Crafty.scene('Loading', function(){
 	'assets/dorm-tiles-red.png', 
 	'assets/player.png',
 	'assets/zombie.png',
+	
+	'assets/building001-l.png', 
 	'assets/building001.png', 
+	'assets/building001-r.png', 
+	
+	
 	'assets/building002.png', 
 	'assets/building003.png', 	
 	'assets/building004.png', 
@@ -59,9 +64,25 @@ Crafty.scene('Loading', function(){
 		
 		
 		
-		Crafty.sprite(303,654, 'assets/building001.png', {
+		
+		
+		Crafty.sprite(43,654, 'assets/building001-l.png', {
+			spr_b001_l:  [0, 0],
+		}, 0, 2);
+		
+		Crafty.sprite(217,654, 'assets/building001.png', {
 			spr_b001:  [0, 0],
 		}, 0, 2);
+		
+		Crafty.sprite(44,654, 'assets/building001-r.png', {
+			spr_b001_r:  [0, 0],
+		}, 0, 2);
+		
+		
+		
+		
+		
+		
 		
 		Crafty.sprite(184,198, 'assets/building002.png', {
 			spr_b002:  [0, 0],
@@ -186,8 +207,19 @@ Crafty.e("2D,Canvas,Particles").particles(options);
             Crafty.e('Zombie').at(49, 10);
              
              
-             Crafty.e('b001').at(1,0)
              
+             
+             
+             
+             Crafty.e('b001_l').at(-1,0);
+             Crafty.e('b001').at(1,0);
+             Crafty.e('b001_r').at(8,0);
+          
+          
+          
+          
+          
+          
           //   Crafty.e('b002').at(10,16);
              Crafty.e('b003').at(15,11);
              Crafty.e('b004').at(22,9);
@@ -197,6 +229,14 @@ Crafty.e("2D,Canvas,Particles").particles(options);
             //this.occupied[10][10] = true;
             
              Crafty.e('b001').at(25,0);
+             
+             
+             
+             
+             
+             
+             
+             
              Crafty.e('b002').at(28,16);
              Crafty.e('b003').at(42,11);
              Crafty.e('b004').at(48,11);
