@@ -392,10 +392,10 @@ Crafty.c('b011', {
 
 
 // A Tree is just an Actor with a certain color
-Crafty.c('b012-l', {
+Crafty.c('b012_l', {
   init: function() {
    // this.requires('Actor,spr_b004, Solid,platform')
-   this.requires('Building,unGrid,spr_b012-l, Solid,platform')
+   this.requires('Building,unGrid,spr_b012_l, Solid,platform')
  
   },
 });
@@ -412,10 +412,10 @@ Crafty.c('b012', {
 
 
 // A Tree is just an Actor with a certain color
-Crafty.c('b012-r', {
+Crafty.c('b012_r', {
   init: function() {
    // this.requires('Actor,spr_b004, Solid,platform')
-   this.requires('Building,unGrid,spr_b012-r, Solid,platform')
+   this.requires('Building,unGrid,spr_b012_r, Solid,platform')
  
   },
 });
@@ -499,7 +499,7 @@ Crafty.c('Hero',
            Crafty.viewport.centerOn(Crafty('Hero'),200);
                     
            
-           Crafty.viewport.bounds = {min:{x:0, y:-100}, max:{x:5000, y:720}};
+           Crafty.viewport.bounds = {min:{x:0, y:-150}, max:{x:7700, y:620}};
            
            
            
