@@ -24,6 +24,45 @@ Crafty.c('Grid',
   }
 });
 
+
+
+
+// The Grid component allows an element to be located
+//  on a grid of tiles
+Crafty.c('unGrid',
+{
+  init: function() 
+  {
+    this.attr({
+      w: Game.map_grid.tile.width,
+      h: Game.map_grid.tile.height
+    })
+  },
+  // Locate this entity at the given position on the grid
+  at: function(x, y)
+  {
+    if (x === undefined && y === undefined) 
+    {
+     // return { x: this.x/Game.map_grid.tile.width, y: this.y/Game.map_grid.tile.height }
+    } else 
+    {
+    //  this.attr({ x: x * Game.map_grid.tile.width, y: y * Game.map_grid.tile.height });
+      this.attr({ x: x , y: y  });
+      return this;
+    }
+  }
+});
+
+
+
+
+
+
+
+
+
+
+
 //////////////////////////////////////////////////////////
 
 Crafty.c('Actor', {
@@ -31,6 +70,19 @@ Crafty.c('Actor', {
     this.requires('2D, Grid,Canvas');
   },
 });
+
+Crafty.c('Building', {
+  init: function() {
+    this.requires('2D,Canvas');
+  },
+});
+
+
+
+
+
+
+
 
 /////////////////////////////////////////////////////////
 Crafty.c('Zombie', 
@@ -133,37 +185,39 @@ Crafty.c('Tree', {
 });
 
 
-
-
-
 // A Tree is just an Actor with a certain color
-Crafty.c('b001_r', {
+Crafty.c('Death', {
   init: function() {
-    this.requires('Actor,spr_b001_r, Solid')
+    this.requires('Building,unGrid,spr_death')
   },
 });
 
 
 
 
+
+
+
+// A Tree is just an Actor with a certain color
+Crafty.c('b001_r2', {
+  init: function() {
+    this.requires('Building,unGrid,spr_b001_r, Solid')
+  },
+});
+
 // A Tree is just an Actor with a certain color
 Crafty.c('b001', {
   init: function() {
-    this.requires('Actor,spr_b001, Solid,platform')
+    this.requires('Building,unGrid,spr_b001, Solid,platform')
   },
 });
 
 // A Tree is just an Actor with a certain color
 Crafty.c('b001_l', {
   init: function() {
-    this.requires('Actor,spr_b001_l, Solid')
+    this.requires('Building,unGrid,spr_b001_l, Solid')
   },
 });
-
-
-
-
-
 
 
 
@@ -171,21 +225,130 @@ Crafty.c('b001_l', {
 // A Tree is just an Actor with a certain color
 Crafty.c('b002', {
   init: function() {
-    this.requires('Actor,spr_b002, Solid,platform')
+    this.requires('Building,unGrid,spr_b002, Solid,platform')
   },
 });
 
 // A Tree is just an Actor with a certain color
 Crafty.c('b003', {
   init: function() {
-    this.requires('Actor,spr_b003, Solid,platform')
+  //  this.requires('Actor,spr_b003, Solid,platform')
+  this.requires('Building,unGrid,spr_b003, Solid,platform')
+ 
+ 
+ 
   },
 });
 
 // A Tree is just an Actor with a certain color
 Crafty.c('b004', {
   init: function() {
-    this.requires('Actor,spr_b004, Solid,platform')
+   // this.requires('Actor,spr_b004, Solid,platform')
+   this.requires('Building,unGrid,spr_b004, Solid,platform')
+ 
+  },
+});
+
+// A Tree is just an Actor with a certain color
+Crafty.c('b005', {
+  init: function() {
+   // this.requires('Actor,spr_b004, Solid,platform')
+   this.requires('Building,unGrid,spr_b005, Solid,platform')
+ 
+  },
+});
+
+// A Tree is just an Actor with a certain color
+Crafty.c('b006', {
+  init: function() {
+   // this.requires('Actor,spr_b004, Solid,platform')
+   this.requires('Building,unGrid,spr_b006, Solid,platform')
+ 
+  },
+});
+
+// A Tree is just an Actor with a certain color
+Crafty.c('b007', {
+  init: function() {
+   // this.requires('Actor,spr_b004, Solid,platform')
+   this.requires('Building,unGrid,spr_b007, Solid,platform')
+ 
+  },
+});
+
+
+
+
+// A Tree is just an Actor with a certain color
+Crafty.c('b008_l', {
+  init: function() {
+   // this.requires('Actor,spr_b004, Solid,platform')
+   this.requires('Building,unGrid,spr_b008_l')
+ 
+  },
+});
+
+// A Tree is just an Actor with a certain color
+Crafty.c('b008', {
+  init: function() {
+   // this.requires('Actor,spr_b004, Solid,platform')
+   this.requires('Building,unGrid,spr_b008, Solid,platform')
+ 
+  },
+});// A Tree is just an Actor with a certain color
+Crafty.c('b008_r', {
+  init: function() {
+   // this.requires('Actor,spr_b004, Solid,platform')
+   this.requires('Building,unGrid,spr_b008_r')
+ 
+  },
+});
+
+
+
+
+
+
+
+
+
+
+// A Tree is just an Actor with a certain color
+Crafty.c('b009_l', {
+  init: function() {
+   // this.requires('Actor,spr_b004, Solid,platform')
+   this.requires('Building,unGrid,spr_b009_l')
+ 
+  },
+});
+
+
+// A Tree is just an Actor with a certain color
+Crafty.c('b009', {
+  init: function() {
+   // this.requires('Actor,spr_b004, Solid,platform')
+   this.requires('Building,unGrid,spr_b009, Solid,platform')
+ 
+  },
+});
+
+
+
+// A Tree is just an Actor with a certain color
+Crafty.c('b009_r_u', {
+  init: function() {
+   // this.requires('Actor,spr_b004, Solid,platform')
+   this.requires('Building,unGrid,spr_b009_r_u')
+ 
+  },
+});
+
+// A Tree is just an Actor with a certain color
+Crafty.c('b009_r_d', {
+  init: function() {
+   // this.requires('Actor,spr_b004, Solid,platform')
+   this.requires('Building,unGrid,spr_b009_r_d, Solid,platform')
+ 
   },
 });
 
@@ -207,6 +370,55 @@ Crafty.c('b004', {
 
 
 
+
+// A Tree is just an Actor with a certain color
+Crafty.c('b010', {
+  init: function() {
+   // this.requires('Actor,spr_b004, Solid,platform')
+   this.requires('Building,unGrid,spr_b010, Solid,platform')
+ 
+  },
+});
+
+
+// A Tree is just an Actor with a certain color
+Crafty.c('b011', {
+  init: function() {
+   // this.requires('Actor,spr_b004, Solid,platform')
+   this.requires('Building,unGrid,spr_b011, Solid,platform')
+ 
+  },
+});
+
+
+// A Tree is just an Actor with a certain color
+Crafty.c('b012-l', {
+  init: function() {
+   // this.requires('Actor,spr_b004, Solid,platform')
+   this.requires('Building,unGrid,spr_b012-l, Solid,platform')
+ 
+  },
+});
+
+
+// A Tree is just an Actor with a certain color
+Crafty.c('b012', {
+  init: function() {
+   // this.requires('Actor,spr_b004, Solid,platform')
+   this.requires('Building,unGrid,spr_b012, Solid,platform')
+ 
+  },
+});
+
+
+// A Tree is just an Actor with a certain color
+Crafty.c('b012-r', {
+  init: function() {
+   // this.requires('Actor,spr_b004, Solid,platform')
+   this.requires('Building,unGrid,spr_b012-r, Solid,platform')
+ 
+  },
+});
 
 
 
@@ -223,7 +435,7 @@ Crafty.c('Village',
 {
     init: function() 
     {
-        this.requires('Actor, spr_village')
+        this.requires('Building,unGrid, spr_village')
     },
     collect: function() 
     {
@@ -285,13 +497,29 @@ Crafty.c('Hero',
         .bind('EnterFrame', function () 
         { 	
            Crafty.viewport.centerOn(Crafty('Hero'),200);
+                    
+           
+           Crafty.viewport.bounds = {min:{x:0, y:-100}, max:{x:5000, y:720}};
+           
+           
+           
+           
+           
         })
         .gravity("platform")
         .stopOnSolids()
         .onHit('Village', this.visitVillage)
+        
+        
+       .onHit('Death', function ()
+        {
+        this.destroy();
+        })
+        
         .reel('PlayerMoving', 600, 0, 0, 30)
         .reel('Playerstanding', 600, 31, 0, 1)
         .animate('PlayerMoving', animation_speed, -1)
+        .crop(10, 0, 90, 100);
         ;
         var animation_speed = 8;
         

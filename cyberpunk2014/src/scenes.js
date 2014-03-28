@@ -14,6 +14,10 @@ Crafty.scene('Loading', function(){
 	'assets/player.png',
 	'assets/zombie.png',
 	
+	
+	'assets/death.png',	
+	
+	
 	'assets/building001-l.png', 
 	'assets/building001.png', 
 	'assets/building001-r.png', 
@@ -21,7 +25,11 @@ Crafty.scene('Loading', function(){
 	
 	'assets/building002.png', 
 	'assets/building003.png', 	
-	'assets/building004.png', 
+	'assets/building004.png',
+	'assets/building005.png',	
+	'assets/building006.png',	
+	'assets/building007.png',	
+	 
 	
 	'assets/backg.png', 
 	
@@ -46,7 +54,10 @@ Crafty.scene('Loading', function(){
 			spr_village: [0,0]
 		});
 		
-		
+		Crafty.sprite(1000,5, 'assets/death.png', {
+
+			spr_death: [0,0]
+		});	
 		
 		
 
@@ -62,7 +73,9 @@ Crafty.scene('Loading', function(){
 		}, 0, 2);
 		
 		
-		
+		Crafty.sprite(5, 'assets/zombies.png', {
+			spr_zombie:  [0, 0],
+		}, 0, 2);
 		
 		
 		
@@ -70,16 +83,18 @@ Crafty.scene('Loading', function(){
 			spr_b001_l:  [0, 0],
 		}, 0, 2);
 		
-		Crafty.sprite(217,654, 'assets/building001.png', {
+		Crafty.sprite(197,654, 'assets/building001.png', {
 			spr_b001:  [0, 0],
 		}, 0, 2);
 		
-		Crafty.sprite(44,654, 'assets/building001-r.png', {
+		Crafty.sprite(64,654, 'assets/building001-r.png', {
 			spr_b001_r:  [0, 0],
 		}, 0, 2);
 		
 		
-		
+		Crafty.sprite(64,654, 'assets/building001-r.png', {
+			spr_b001_r2:  [0, 0],
+		}, 0, 2);
 		
 		
 		
@@ -92,11 +107,97 @@ Crafty.scene('Loading', function(){
 			spr_b003:  [0, 0],
 		}, 0, 2);
 		
-		Crafty.sprite(364,428, 'assets/building004.png', {
+		Crafty.sprite(728,428, 'assets/building004.png', {
 			spr_b004:  [0, 0],
 		}, 0, 2);
 		
 		
+		Crafty.sprite(376,447, 'assets/building005.png', {
+			spr_b005:  [0, 0],
+		}, 0, 2);
+		
+		Crafty.sprite(450,339, 'assets/building006.png', {
+			spr_b006:  [0, 0],
+		}, 0, 2);
+
+
+		Crafty.sprite(474,328, 'assets/building007.png', {
+			spr_b007:  [0, 0],
+		}, 0, 2);
+
+
+		Crafty.sprite(299,685, 'assets/building008_l.png', {
+			spr_b008_l:  [0, 0],
+		}, 0, 2);
+
+		Crafty.sprite(150,514, 'assets/building008.png', {
+			spr_b008:  [0, 0],
+		}, 0, 2);
+
+		Crafty.sprite(78,508, 'assets/building008_r.png', {
+			spr_b008_r:  [0, 0],
+		}, 0, 2);
+
+
+
+
+
+
+
+		Crafty.sprite(156,578, 'assets/building009_l.png', {
+			spr_b009_l:  [0, 0],
+		}, 0, 2);
+
+
+		Crafty.sprite(277,578, 'assets/building009.png', {
+			spr_b009:  [0, 0],
+		}, 0, 2);
+
+
+		Crafty.sprite(714,354, 'assets/building009_r_u.png', {
+			spr_b009_r_u:  [0, 0],
+		}, 0, 2);
+
+        Crafty.sprite(714,225, 'assets/building009_r_d.png', {
+			spr_b009_r_d:  [0, 0],
+		}, 0, 2);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		Crafty.sprite(298,628, 'assets/building010.png', {
+			spr_b010:  [0, 0],
+		}, 0, 2);
+
+		Crafty.sprite(352,840, 'assets/building011.png', {
+			spr_b011:  [0, 0],
+		}, 0, 2);
+
+
+		Crafty.sprite(1086,582, 'assets/building012-l.png', {
+			spr_b011:  [0, 0],
+		}, 0, 2);
+
+		Crafty.sprite(630,840, 'assets/building012.png', {
+			spr_b011:  [0, 0],
+		}, 0, 2);
+
+
+		Crafty.sprite(724,840, 'assets/building012-r.png', {
+			spr_b011:  [0, 0],
+		}, 0, 2);
+
 
 
 
@@ -201,19 +302,26 @@ Crafty.e("2D,Canvas,Particles").particles(options);
           
             }
             
-            Crafty.e('Bush').at(58, 10);
-            Crafty.e('Bush').at(42, 10);
+            Crafty.e('Bush').at(58, -60);
+            Crafty.e('Bush').at(42, -60);
           
             Crafty.e('Zombie').at(49, 10);
              
              
              
+             Crafty.e('Death').at(200,640);
+             Crafty.e('Death').at(1200,640);
+             Crafty.e('Death').at(2200,640);
+             Crafty.e('Death').at(3200,640);
+             Crafty.e('Death').at(4200,640);
+             Crafty.e('Death').at(5200,640);            
              
              
              
-             Crafty.e('b001_l').at(-1,0);
-             Crafty.e('b001').at(1,0);
-             Crafty.e('b001_r').at(8,0);
+             
+             Crafty.e('b001_l').at(1,0);
+             Crafty.e('b001').at(44,0);
+             Crafty.e('b001_r2').at(241,0);
           
           
           
@@ -221,29 +329,72 @@ Crafty.e("2D,Canvas,Particles").particles(options);
           
           
           //   Crafty.e('b002').at(10,16);
-             Crafty.e('b003').at(15,11);
-             Crafty.e('b004').at(22,9);
+           
+           
+             Crafty.e('b003').at(480,290);
+            
+            
+            
+            
+             Crafty.e('b004').at(680,210);
+             Crafty.e('b004').at(1580,210);
+             Crafty.e('b002').at(1980,350);
+              
+              
+              
+              Crafty.e('b005').at(2210,200);
+           Crafty.e('b006').at(2610,320);
+            Crafty.e('b007').at(2930,350);             
+              
+              
+          
+          
+          
+           Crafty.e('b008_l').at(3310,0);
+           Crafty.e('b008').at(3609,324);
+           Crafty.e('b008_r').at(3759,0);
+           
+           
+           
+           
+           
+           Crafty.e('b009_l').at(4055,60);
+           Crafty.e('b009').at(4210,60);
+           Crafty.e('b009_r_u').at(4490,60);
+           Crafty.e('b009_r_d').at(4490,420);
+           
+           
+           
+           
+     //      Crafty.e('b010').at(4230,250); 
+     //      Crafty.e('b011').at(4410,100);
+           
+      //     Crafty.e('b012-l').at(4610,220);
+      //     Crafty.e('b012').at(4830,250);      
+      //     Crafty.e('b012-r').at(5030,250);
+           
+                       
             // Place a bush entity at the current tile
             // var bush_or_rock = (Math.random() > 0.3) ? 'Bush' : 'Rock';
            // Crafty.e('Bush').at(x, y);
             //this.occupied[10][10] = true;
             
-             Crafty.e('b001').at(25,0);
+          //   Crafty.e('b001').at(25,0);
              
              
              
              
              
+           
              
              
-             
-             Crafty.e('b002').at(28,16);
-             Crafty.e('b003').at(42,11);
-             Crafty.e('b004').at(48,11);
-             Crafty.e('b004').at(64,11);
-             Crafty.e('b001').at(84,0);
+            
+      //       Crafty.e('b003').at(42,0);
+            
+        //     Crafty.e('b004').at(64,11);
+      /*         Crafty.e('b001').at(84,0);
              Crafty.e('b001').at(90, 0);
-         
+     */    
          } 
         
         }
@@ -254,7 +405,7 @@ Crafty.e("2D,Canvas,Particles").particles(options);
     
     
     
-    Crafty.e('Village').at(15, 10);
+    Crafty.e('Village').at(480,270);
     
     Crafty.e('Village').at(20, 10);
     
