@@ -15,28 +15,33 @@
 //var canvas = document.getElementById("myCanvas");
 
 	var  canvas, context, toggle;
-	var y = 200;
+	var y = 60;
 	var x = 0;
 	var dirX = 1;
 	var dirY = 1;
 	
 	var destX=10  ;
-	var destY ;
+	var destY=100 ;
 	var i;
 	var state ;
 	var inbounds ='true';
 	var status = -1; // -1: stopped  , 0 In play	
 	var imageObj = new Image();	
-	var imageObj2 = new Image();
+	var imageObj2 = new Image();	
+	var imageObj3 = new Image();
 	var background_obj = new Image();
 	var bg = new Image();
-	var jump = 'rest';
+	
+	//var jump = 'rest';
+	var jump;
+	
 	var backg_x = 0;
 	var backg_y = 0;
 	var floating =false;
 	background_obj.src = "level_bounds.png";
 	imageObj.src = "spshipsprite-r.png";
 	imageObj2.src = "spshipsprite-l.png";
+	imageObj3.src = "spshipsprite-rest.png";
 	bg.src = "bg.png";
 	
 	var state_image = imageObj2;
@@ -170,12 +175,13 @@
 				if (y == 0)
 				{
 					jump = 'rest';
+					
 				}
 			}
 			if (jump == 'rest')
 			{
 				y = 0;
-				
+				 state_image = imageObj3;
 				dirY = -1;
 			}
 			
@@ -186,7 +192,7 @@
 			
 
 			destX = (canvas.width / 2 ) + x;
-			destY = canvas.height  -  y - 60		;// 60 pixels offset from centre
+			destY = canvas.height  -  y - 80		;// 60 pixels offset from centre
 
 			if (destY < 10)
 			{
