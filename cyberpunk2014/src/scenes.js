@@ -39,7 +39,7 @@ Crafty.scene('Loading', function(){
 		
 	'assets/building0010.png',	
 	
-	
+	'assets/eol1freak.png',
 	
 	
 	
@@ -86,6 +86,12 @@ Crafty.scene('Loading', function(){
         Crafty.sprite(100, 'assets/zombies.png', {
 			spr_zombie:  [0, 0],
 		}, 0, 2);
+		
+		
+		Crafty.sprite(100,150, 'assets/eol1freak.png', {
+			spr_eol1freak:  [0, 0],
+		}, 0, 2);
+		
 		
 	/*	
 		Crafty.sprite(5, 'assets/zombies.png', {
@@ -268,7 +274,7 @@ var options = {
     jitter: 0
 }
 
-Crafty.e("2D,Canvas,Particles").particles(options);
+//Crafty.e("2D,Canvas,Particles").particles(options);
 
 
     var Hero =   Crafty.e("Hero").at(3, 3); 
@@ -400,7 +406,13 @@ Crafty.e("2D,Canvas,Particles").particles(options);
            Crafty.e('b011').at(5610,0);
            
            Crafty.e('b012_l').at(6210,120);
-           Crafty.e('b012').at(6430,150);      
+           Crafty.e('b012').at(6430,150);
+           
+           Crafty.e('eol1freak').at(6430,6);
+           
+           
+           
+                 
            Crafty.e('b012_r').at(6830,150);
            
                        
