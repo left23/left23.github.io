@@ -4,10 +4,6 @@ Crafty.scene('Loading', function(){
 			.attr({ x: 0, y: 200 - 24, w: 200 })
 			.text('Loading...');
 
-
-
-
-
 	// Load our sprite map image
 	Crafty.load([
 	'assets/dorm-tiles-red.png', 
@@ -40,12 +36,7 @@ Crafty.scene('Loading', function(){
 	'assets/building0010.png',	
 	
 	'assets/eol1freak.png',
-	
-	
-	
 		
-	 
-	
 	'assets/backg.png', 
 	
 	
@@ -92,18 +83,7 @@ Crafty.scene('Loading', function(){
 			spr_eol1freak:  [0, 0],
 		}, 0, 2);
 		
-		
-	/*	
-		Crafty.sprite(5, 'assets/zombies.png', {
-			spr_zombie:  [0, 0],
-		}, 0, 2);
-		
-		*/
-		
-		
-		
-		
-		
+	
 		
 		Crafty.sprite(43,654, 'assets/building001-l.png', {
 			spr_b001_l:  [0, 0],
@@ -118,18 +98,11 @@ Crafty.scene('Loading', function(){
 		}, 0, 2);
 		
 		
-		
-		
-		
-		
-		
 		Crafty.sprite(64,654, 'assets/building001-r.png', {
 			spr_b001_r2:  [0, 0],
 		}, 0, 2);
 		
-		
-		
-		
+
 		Crafty.sprite(184,198, 'assets/building002.png', {
 			spr_b002:  [0, 0],
 		}, 0, 2);
@@ -170,11 +143,6 @@ Crafty.scene('Loading', function(){
 		}, 0, 2);
 
 
-
-
-
-
-
 		Crafty.sprite(156,578, 'assets/building009_l.png', {
 			spr_b009_l:  [0, 0],
 		}, 0, 2);
@@ -192,9 +160,6 @@ Crafty.scene('Loading', function(){
         Crafty.sprite(714,225, 'assets/building009_r_d.png', {
 			spr_b009_r_d:  [0, 0],
 		}, 0, 2);
-
-
-
 
 		Crafty.sprite(298,628, 'assets/building010.png', {
 			spr_b010:  [0, 0],
@@ -217,9 +182,6 @@ Crafty.scene('Loading', function(){
 		Crafty.sprite(724,217, 'assets/building012-r.png', {
 			spr_b012_r:  [0, 0],
 		}, 0, 2);
-
-
-
 
 
 		// Now that our sprites are ready to draw, start the game
@@ -327,7 +289,7 @@ var options = {
           
             Crafty.e('Zombie').at(29, 10);
              
-             
+      
              
              Crafty.e('Death').at(200,640);
              Crafty.e('Death').at(1200,640);
@@ -371,33 +333,20 @@ var options = {
               
               Crafty.e('Bush').at(68, 6);
               
-              
-              
-              
-              
-              
+             
               Crafty.e('b005').at(2210,200);
            Crafty.e('b006').at(2610,320);
             Crafty.e('b007').at(2930,350);             
               
-              
-          
-          
           
            Crafty.e('b008_l').at(3310,0);
            Crafty.e('b008').at(3609,324);
            Crafty.e('b008_r').at(3759,0);
            
-           
-           
-           
-           
            Crafty.e('b009_l').at(4055,60);
            Crafty.e('b009').at(4210,60);
            Crafty.e('b009_r_u').at(4490,60);
            Crafty.e('b009_r_d').at(4490,420);
-           
-           
            
            
            Crafty.e('b010').at(5330,100); 
@@ -409,10 +358,7 @@ var options = {
            Crafty.e('b012').at(6430,150);
            
            Crafty.e('eol1freak').at(6430,6);
-           
-           
-           
-                 
+         
            Crafty.e('b012_r').at(6830,150);
            
                        
@@ -422,13 +368,6 @@ var options = {
             //this.occupied[10][10] = true;
             
           //   Crafty.e('b001').at(25,0);
-             
-             
-             
-             
-             
-           
-             
              
             
       //       Crafty.e('b003').at(42,0);

@@ -2,8 +2,8 @@ Game =
 {
     // This defines our grid's size and the size of each of its tiles
     map_grid: {
-        width: 22,
-        height: 14,
+        width: 21,
+        height: 13,
         tile: {
             width: 32,
             height: 32
@@ -28,17 +28,12 @@ Game =
         Crafty.init(Game.width(), Game.height());
        // Crafty.background('rgb(87, 109, 20)');
         Crafty.background('#FFFFFF url(assets/backg.png) no-repeat center center'); 
-        
-        // Place a tree at every edge square on our grid of 16x16 tiles
-        
-        //  var Hero =   Crafty.e("Hero,2D, DOM, Color,Collision,Keyboard,Grid").at(250/16, 150/16); 
-            Crafty.scene('Loading');
        
-        //  var Hero =   Crafty.e("Hero").at(250/16, 150/16); 
+        Crafty.scene('Loading');
+       
     }
 }
 $text_css = { 'font-size': '24px', 'font-family': 'Arial', 'color': 'white', 'text-align': 'center' }
-
 
 var disks= 10;
 var dX=0;

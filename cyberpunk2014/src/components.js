@@ -24,9 +24,6 @@ Crafty.c('Grid',
   }
 });
 
-
-
-
 // The Grid component allows an element to be located
 //  on a grid of tiles
 Crafty.c('unGrid',
@@ -52,6 +49,7 @@ Crafty.c('unGrid',
     }
   }
 });
+
 
 //////////////////////////////////////////////////////////
 
@@ -175,7 +173,6 @@ Crafty.c('Death', {
   },
 });
 
-
 // A Tree is just an Actor with a certain color
 Crafty.c('b001_r2', {
   init: function() {
@@ -283,8 +280,6 @@ Crafty.c('b008_r', {
 });
 
 
-
-
 // A Tree is just an Actor with a certain color
 Crafty.c('b009_l', {
   init: function() {
@@ -324,6 +319,15 @@ Crafty.c('b009_r_d', {
   },
 });
 
+
+// A Tree is just an Actor with a certain color
+Crafty.c('eol1freak', {
+  init: function() {
+   // this.requires('Actor,spr_b004, Solid,platform')
+   this.requires('Building,unGrid,spr_eol1freak, Solid,platform')
+ 
+  },
+});
 
 // A Tree is just an Actor with a certain color
 Crafty.c('b010', {
@@ -451,11 +455,10 @@ Crafty.c('Hero',
         .bind('EnterFrame', function () 
         { 	
            Crafty.viewport.centerOn(Crafty('Hero'),200);
-                    
+                 
            
            Crafty.viewport.bounds = {min:{x:0, y:-150}, max:{x:7700, y:620}};
-    
-      
+ 
            
         })
         .gravity("platform")
