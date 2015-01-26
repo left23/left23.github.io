@@ -53,16 +53,6 @@ Crafty.c('unGrid',
   }
 });
 
-
-
-
-
-
-
-
-
-
-
 //////////////////////////////////////////////////////////
 
 Crafty.c('Actor', {
@@ -76,13 +66,6 @@ Crafty.c('Building', {
     this.requires('2D,Canvas');
   },
 });
-
-
-
-
-
-
-
 
 /////////////////////////////////////////////////////////
 Crafty.c('Zombie', 
@@ -191,11 +174,6 @@ Crafty.c('Death', {
     this.requires('Building,unGrid,spr_death')
   },
 });
-
-
-
-
-
 
 
 // A Tree is just an Actor with a certain color
@@ -307,12 +285,6 @@ Crafty.c('b008_r', {
 
 
 
-
-
-
-
-
-
 // A Tree is just an Actor with a certain color
 Crafty.c('b009_l', {
   init: function() {
@@ -351,24 +323,6 @@ Crafty.c('b009_r_d', {
  
   },
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 // A Tree is just an Actor with a certain color
@@ -500,10 +454,8 @@ Crafty.c('Hero',
                     
            
            Crafty.viewport.bounds = {min:{x:0, y:-150}, max:{x:7700, y:620}};
-           
-           
-           
-           
+    
+      
            
         })
         .gravity("platform")
