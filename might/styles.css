@@ -1,0 +1,79 @@
+/* RGBA -> Red Green Blue Alpha
+
+Alpha channel = value of 0% is fully transparent, a value of 100% is fully opaque 
+
+rgba(0,0,0,1); -> black
+rgba(123,123,123,1); -> grey
+rgba(203,203,203,1); -> light grey
+rgba(255,255,255,1); -> white
+
+rgba(255,0,0,1); -> red
+rgba(0,255,0,1); -> green
+rgba(0,0,255,1); -> blue
+
+*/html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+
+body {
+font-family:arial, sans-serif;
+color:rgb(0,0,0);
+}
+
+#container {
+ 
+margin: 0 auto;
+width: 568px;
+height:456px;
+padding: 0px;
+background:url(toolbar.jpg) no-repeat 50% 0 rgb(0,0,0);
+text-align: center;
+border: 3px solid black;
+overflow:hidden;
+}
+
+h3#title {
+color:rgba(255,255,255,1);
+background:rgba(0,0,255,1);
+margin:0;
+}
+
+canvas {
+
+margin:130px 0 0 ;
+}
+
+a {color:rgb(0,0,0);}
+a:hover {color:rgb(255,255,255);}
+
+#container p {
+text-align:left;
+}
+
+#float_left {
+float:left;
+background: rgba(255,0,0,1);
+margin: 10px ;
+width: 245px;
+padding: 10px;
+border: 1px solid rgba(0,0,0,1);
+}
+
+#float_right {
+float: right;
+background: rgba(0,255,0,1);
+margin: 10px;
+width: 245px;
+padding: 10px;
+border: 1px solid rgba(0,0,0,1);
+}
+
+#float_left:hover,
+#float_right:hover {
+background: rgba(0,0,0,1);
+color: rgba(255,255,255,1);
+}
