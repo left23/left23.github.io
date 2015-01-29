@@ -3,8 +3,8 @@
     <head>
         <title>Template001</title>
         <link rel=stylesheet href=styles.css>
-        <script src="jquery-2.0.3.min.js"></script>
-        <script src="phaser.js"></script>
+        <script src="_site/js/jquery-2.0.3.min.js"></script>
+        <script src="_site/js/phaser.js"></script>
            
  <script>
             var playState = new Array();
@@ -41,6 +41,7 @@
             var send = 1;
             
             var player;
+            var sprite3;
 var aliens;
 var bullets;
 var bulletTime = 0;
@@ -51,6 +52,7 @@ var starfield;
 var score = 0;
 var scoreString = '';
 var scoreText;
+var total_lives=5;
 var lives;
 var enemyBullet;
 var firingTimer = 0;
@@ -72,11 +74,11 @@ var livingEnemies = [];
       <div id ="world"></div>
 
             <div id ="float_left">
-            -x-
+            <-- Left Arrow to Block <--
             </div>
 
             <div id ="float_right">
-            -x-
+            --> Right arrow to attack -->
             </div>
 
         </div><!-- end container -->
