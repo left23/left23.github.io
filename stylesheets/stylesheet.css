@@ -128,11 +128,17 @@ dt {
   font-weight: bold;
 }
 
-ul li {
+
+
+
+
+
+
+.container ul li {
   list-style: none;
 }
 
-ul li:before {
+.container ul li:before {
   content: ">>";
   font-family: Monaco, "Bitstream Vera Sans Mono", "Lucida Console", Terminal, monospace;
   font-size: 13px;
@@ -383,7 +389,6 @@ div#breadcrumbs, .navbar .nav > li > a:focus, .navbar .nav > li > a:hover, .navb
 }
 .navbar .nav {
   display: block;
-  float: left;
   left: 0;
   margin: 0 10px 0 0;
   position: relative;
