@@ -1,19 +1,21 @@
+/* apply a natural box layout model to all elements, but allowing components to change */
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
 body {
   margin: 0;
   padding: 0;
-  background: #151515 url("http://emc23.com/templates/emc23fleximaxv1/images/purple_bg.png") 0 0;
+  background: #151515 url("http://www.emc23.com/themes/custom/emc/images/purple_bg.png") 0 0;
   color: #eaeaea;
   font: 16px;
   line-height: 1.5;
-  font-family: Monaco, "Bitstream Vera Sans Mono", "Lucida Console", Terminal, monospace;
+  font-family: verdana,arial,helvetica,sans-serif;
 }
 /* General & 'Reset' Stuff */
-
-.container {
-  width: 90%;
-  max-width: 600px;
-  margin: 0 auto;
-}
 
 section {
   display: block;
@@ -35,36 +37,32 @@ li {
 */
 
 header {
-  background: rgba(0, 0, 0, 0.1);
+  /*background: rgba(0, 0, 0, 0.1);*/
   width: 100%;
-  border-bottom: 1px dashed #b5e853;
-  padding: 20px 0;
-  margin: 0 0 40px 0;
+  /*border-bottom: 1px dashed #FFDD07;*/
+  /*padding: 1rem;*/
+  margin: 0 0 3rem 0;
 }
 
 header h1 {
   font-size: 30px;
   line-height: 1.5;
-  margin: 0 0 0 -40px;
+  /*margin: 0 0 0 -40px;*/
   font-weight: bold;
-  font-family: Monaco, "Bitstream Vera Sans Mono", "Lucida Console", Terminal, monospace;
-  color: #b5e853;
-  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1),
-               0 0 5px rgba(181, 232, 83, 0.1),
-               0 0 10px rgba(181, 232, 83, 0.1);
-  letter-spacing: -1px;
+  color: #FFDD07;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.9);
   -webkit-font-smoothing: antialiased;
 }
 
-header h1:before {
-  content: "./ ";
-  font-size: 24px;
-}
+/*header h1:before {*/
+  /*content: "./ ";*/
+  /*font-size: 24px;*/
+/*}*/
 
 header h2 {
   font-size: 18px;
   font-weight: 300;
-  color: #666;
+  color: white
 }
 
 #downloads .btn {
@@ -86,12 +84,8 @@ section img {
 
 h1, h2, h3, h4, h5, h6 {
   font-weight: normal;
-  font-family: Monaco, "Bitstream Vera Sans Mono", "Lucida Console", Terminal, monospace;
-  color: #b5e853;
-  letter-spacing: -0.03em;
-  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1),
-               0 0 5px rgba(181, 232, 83, 0.1),
-               0 0 10px rgba(181, 232, 83, 0.1);
+  color: white;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.9);
 }
 
 #main_content h1 {
@@ -138,15 +132,15 @@ dt {
   list-style: none;
 }
 
-.container ul li:before {
-  content: ">>";
-  font-family: Monaco, "Bitstream Vera Sans Mono", "Lucida Console", Terminal, monospace;
-  font-size: 13px;
-  color: #b5e853;
-  margin-left: -37px;
-  margin-right: 21px;
-  line-height: 16px;
-}
+/*.container ul li:before {*/
+  /*content: ">>";*/
+  /*font-family: Monaco, "Bitstream Vera Sans Mono", "Lucida Console", Terminal, monospace;*/
+  /*font-size: 13px;*/
+  /*color: #FFDD07;*/
+  /*margin-left: -37px;*/
+  /*margin-right: 21px;*/
+  /*line-height: 16px;*/
+/*}*/
 
 blockquote {
   color: #aaa;
@@ -159,7 +153,7 @@ pre {
   border: 1px solid rgba(255, 255, 255, 0.15);
   padding: 10px;
   font-size: 14px;
-  color: #b5e853;
+  color: #FFDD07;
   border-radius: 2px;
   -moz-border-radius: 2px;
   -webkit-border-radius: 2px;
@@ -175,7 +169,7 @@ table {
 
 th {
   text-align: left;
-  border-bottom: 1px dashed #b5e853;
+  border-bottom: 1px dashed #FFDD07;
   padding: 5px 10px;
 }
 
@@ -186,8 +180,8 @@ td {
 hr {
   height: 0;
   border: 0;
-  border-bottom: 1px dashed #b5e853;
-  color: #b5e853;
+  border-bottom: 1px dashed #FFDD07;
+  color: #FFDD07;
 }
 
 /* Buttons
@@ -201,8 +195,7 @@ hr {
   border: 2px solid rgba(0, 0, 0, 0.7);
   border-bottom: 2px solid rgba(0, 0, 0, 0.7);
   border-top: 2px solid rgba(0, 0, 0, 1);
-  color: rgba(255, 255, 255, 0.8);
-  font-family: Helvetica, Arial, sans-serif;
+  color:#FFDD07;
   font-weight: bold;
   font-size: 13px;
   text-decoration: none;
@@ -227,13 +220,19 @@ hr {
   background: url("../images/blacktocat.png") 0 0 no-repeat;
 }
 
+.btn-demo .icon {
+  opacity: 0.6;
+  background: url("../images/icon-external-link.svg") 0 0 no-repeat;
+  background-size: 16px;
+}
+
 /* Links
    a, a:hover, a:visited
 */
 
 a {
-  color: #63c0f5;
-  text-shadow: 0 0 5px rgba(104, 182, 255, 0.5);
+  color: #be9eec;
+  text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
 }
 
 /* Clearfix */
