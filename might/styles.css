@@ -57,19 +57,19 @@ text-align:left;
 #float_left {
 float:left;
 background: rgba(255,0,0,1);
-margin: 10px ;
-width: 245px;
 padding: 10px;
-border: 1px solid rgba(0,0,0,1);
+width: 50%;
+cursur: pointer;
+background:url(stage.png) no-repeat 100% 100% rgb(0,0,0);
 }
 
 #float_right {
 float: right;
 background: rgba(0,255,0,1);
-margin: 10px;
-width: 245px;
+width: 50%;
 padding: 10px;
-border: 1px solid rgba(0,0,0,1);
+cursur: pointer;
+background:url(stage.png) no-repeat 0 100% rgb(0,0,0);
 }
 
 #float_left:hover,

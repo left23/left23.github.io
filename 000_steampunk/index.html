@@ -1,0 +1,26 @@
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+  </head>
+  <body>
+
+  <i onclick="launchFullscreen(document.documentElement);" class="fa fa-arrows-alt" title="Enable Fullscreen">Full</i>
+  <i onclick="exitFullscreen();" class="fa fa-compress" title="Exit Fullscreen">Exit</i>
+
+
+    <div id="world"></div>
+
+
+    <script src="jquery-2.0.3.min.js"></script>
+    <!-- Phaser -->
+    <script src="phaser.min.js"></script>
+    <script type="text/javascript" src="plugins/box2d-plugin-full.min.js"></script>
+    <script src='custom.js'></script>
+    <script src='state001.js'></script>
+    <script src='state002.js'></script>
+    <script src='state003.js'></script>
+    <script src='start.js'></script>
+
+
+  </body>
+</html>
