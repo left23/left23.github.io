@@ -1,0 +1,145 @@
+/* RGBA -> Red Green Blue Alpha
+
+Alpha channel = value of 0% is fully transparent, a value of 100% is fully opaque 
+
+rgba(0,0,0,1); -> black
+rgba(123,123,123,1); -> grey
+rgba(203,203,203,1); -> light grey
+rgba(255,255,255,1); -> white
+
+rgba(255,0,0,1); -> red
+rgba(0,255,0,1); -> green
+rgba(0,0,255,1); -> blue
+
+*/
+
+/* http://www.paulirish.com/2012/box-sizing-border-box-ftw/ */
+/* apply a natural box layout model to all elements */
+*, *:before, *:after {
+  -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;
+ }
+
+
+
+/* mobile first */
+
+
+@media screen and (max-width : 768px) {
+	body {
+	background-color:black;
+	}
+	
+	#container {
+		margin: 0 auto;
+		width: 100%;
+		min-height:320px;
+		max-height:480px;
+	}
+
+	.picture {
+		width: 100%;
+		min-height:320px;
+		max-height:480px;
+		padding:1em 1em 0;
+	}
+
+}
+
+
+
+@media screen and (min-width : 769px) {
+	body {
+	background-color:black;
+	}
+	#container {
+		margin: 0 auto;
+		width: 600px;
+		height:480px;
+	}
+
+	.picture {
+		width: 600px;
+		height:480px;
+		padding:1em 1em 0;
+	}
+
+}
+
+
+
+body {
+	font:400 12px/18px arial, sans-serif;
+	color:rgb(0,0,0);
+}
+
+#container {
+	background: #23538a; /* Old browsers */
+	background: -moz-linear-gradient(top, #23538a 0%, #a7cfdf 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#23538a), color-stop(100%,#a7cfdf)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top, #23538a 0%,#a7cfdf 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top, #23538a 0%,#a7cfdf 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top, #23538a 0%,#a7cfdf 100%); /* IE10+ */
+	background: linear-gradient(to bottom, #23538a 0%,#a7cfdf 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#23538a', endColorstr='#a7cfdf',GradientType=0 ); /* IE6-9 */
+	text-align: center;
+	overflow:hidden;
+}
+
+.picture {
+	background-size:cover;
+	background-position:50% 50%;
+	background-repeat:no-repeat;
+	position:relative;
+	cursor:url(mallet.png), auto;
+}
+.index .picture {
+	background-image:url(scene.jpg);
+}
+
+
+div.mole {
+	display:none;
+	/*display:block;*/
+	height:214px;
+	width:186px;
+	background-size:cover;
+	background-position:50% 50%;
+	background-repeat:no-repeat;
+	position:absolute;
+}
+
+
+div.mole.explode {
+	background-image:url(explode.png) !important;
+}
+
+div#moleOne {
+	background-image:url(camilla.png);
+	top:167px;
+	left:18px;
+}
+div#moleTwo {
+	background-image:url(prince.png);
+	top:223px;
+	left:138px;
+}
+div#moleThree {
+	background-image:url(queen.png);
+	top:157px;
+	left:272px;
+}
+div#moleFour {
+	background-image:url(king.png);
+	top:104px;
+	left:399px;
+}
+
+.score {
+width:100px;
+position:relative;
+left:20;
+top:20;
+color:white;
+}
+
+
